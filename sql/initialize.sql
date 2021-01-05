@@ -3,5 +3,5 @@ CREATE TABLE games (
   title VARCHAR(255) NOT NULL,
   release_year INT NOT NULL,
   box_art VARCHAR(255) NOT NULL,
-  synopsis TEXT NOT NULL,
+  synopsis TEXT,
 );
