@@ -3,7 +3,10 @@ VALUES (
     "Super Mario Bros.",
     1985,
     "https://images.igdb.com/igdb/image/upload/t_cover_big/co2362.jpg",
-    "A side scrolling 2D platformer and first entry in the Super Mario franchise, Super Mario Bros. follows Italian plumber Mario as he treks across many levels of platforming challenges featuring hostile enemies to rescue Princess Peach from the evil king Bowser."
+    "A side scrolling 2D platformer and first entry in the Super Mario franchise, Super Mario Bros. follows Italian plumber Mario as he treks across many levels of platforming challenges featuring hostile enemies to rescue Princess Peach from the evil king Bowser.",
+    "https://youtu.be/U_BFK_htLjo",
+    "https://townsquare.media/site/295/files/2020/09/super-mario-bros.jpg",
+    "Nintendo"
   ),
   (
     "10-Yard Fight",
@@ -11,13 +14,16 @@ VALUES (
     "https://images.igdb.com/igdb/image/upload/t_cover_big/z6xrk4qkqerfdrvsgkin.jpg",
     "The game is viewed in a top-down perspective and is vertical scrolling. The player does not select plays for either offense or defense. On offense, the player simply receives the ball upon the snap and either attempt to run with the quarterback, toss the ball to a running back, or throw the ball to the one long distance receiver - basically the option offense. On defense, the player chooses one of two players to control, and the computer manipulates the others. The ball can also be punted or a field goal can be attempted.
 
-10-Yard Fight has five levels of difficulty; from easiest to most difficult: high school, college, professional, playoff, and Super Bowl. If the player wins both halves of an 'accelerated real time' 30-minute half at an easier level, the player advanced to the next level of difficulty, like a career mode."
+10-Yard Fight has five levels of difficulty; from easiest to most difficult: high school, college, professional, playoff, and Super Bowl. If the player wins both halves of an 'accelerated real time' 30-minute half at an easier level, the player advanced to the next level of difficulty, like a career mode." "https://youtu.be/5LUyTv9j1TM",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmdvA0pCJVM6q_Vqig80YdIXZuqIDTWjQouA&usqp=CAU",
+    "Irem"
   ),
   (
     "3-D World Runner",
     1987,
     "https://images.igdb.com/igdb/image/upload/t_cover_big/pbxb9zyymc21ijapkucu.jpg",
-    NULL
+    NULL,
+    "https://youtu.be/jTbH25YNxE4",
   ),
   (
     "1942",
