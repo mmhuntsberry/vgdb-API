@@ -1,56 +1,59 @@
-const express = require("express");
-const pool = require("../../sql/connection");
-const mysql = require("mysql");
+const express = require('express');
+const pool = require('../../sql/connection');
+const mysql = require('mysql2');
 
 const list = (req, res) => {
-  pool.query("SELECT * FROM games", (err, rows) => {
+  pool.query('SELECT * FROM games', (err, rows) => {
     if (err) {
       console.log({ err });
-      return res.status(500).send("An unexpected error occurred.");
+      return res.status(500).send('An unexpected error occurred.');
     }
     res.json(rows);
   });
 };
 
 const show = (req, res) => {
-  let sql = "SELECT ?? FROM ?? WHERE ?? = ?";
-  sql = mysql.format(sql, ["*", "games", "id", req.params.id]);
+  let sql = 'SELECT ?? FROM ?? WHERE ?? = ?';
+  sql = mysql.format(sql, ['*', 'games', 'id', req.params.id]);
   pool.query(sql, (err, rows) => {
     if (err) {
       console.log({ err });
-      return res.status(500).send("An unexpected error occurred.");
+      return res.status(500).send('An unexpected error occurred.');
     }
     res.json(rows);
   });
 };
 
 const create = (req, res) => {
-  let sql = "INSERT INTO ?? VALUES (?, ?, ?, ?, ?)";
+  let sql =
+    'INSERT INTO games (title, release_year, box_art, synopsis, trailer, hero, developer) VALUES (?, ?, ?, ?, ?, ?, ?)';
+
   sql = mysql.format(sql, [
-    "games",
-    null,
     req.body.title,
     req.body.release_year,
     req.body.box_art,
     req.body.synopsis,
+    req.body.trailer,
+    req.body.hero,
+    req.body.developer,
   ]);
 
   pool.query(sql, (err, results) => {
     if (err) {
       console.error({ err });
-      return res.status(500).send("An unexpected error occurred");
+      return res.status(500).send('An unexpected error occurred');
     }
     return res.json({ id: results.insertId });
   });
 };
 
 const update = (req, res) => {
-  let sql = "UPDATE ?? SET ? WHERE id = ?";
-  sql = mysql.format(sql, ["games", req.body, req.params.id]);
+  let sql = 'UPDATE ?? SET ? WHERE id = ?';
+  sql = mysql.format(sql, ['games', req.body, req.params.id]);
   pool.query(sql, (err, results) => {
     if (err) {
       console.error({ err });
-      return res.status(500).send("An unexpected error occurred");
+      return res.status(500).send('An unexpected error occurred');
     }
     console.log({ results });
     return res.json({ id: results.message });
@@ -58,12 +61,12 @@ const update = (req, res) => {
 };
 
 const remove = (req, res) => {
-  let sql = "DELETE FROM ?? WHERE ?? = ?";
-  sql = mysql.format(sql, ["games", "id", req.params.id]);
+  let sql = 'DELETE FROM ?? WHERE ?? = ?';
+  sql = mysql.format(sql, ['games', 'id', req.params.id]);
   pool.query(sql, (err, results) => {
     if (err) {
       console.error({ err });
-      return res.status(500).send("An unexpected error occurred");
+      return res.status(500).send('An unexpected error occurred');
     }
     console.log({ results });
     return res.json({ id: results.affectedRows });

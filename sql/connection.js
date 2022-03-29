@@ -1,25 +1,16 @@
-const mysql = require("mysql");
-require("dotenv").config();
+const mysql = require('mysql2');
+require('dotenv').config();
 
-class Connection {
-  constructor() {
-    if (!this.pool) {
-      console.log("Creating connection pool");
-      this.pool = mysql.createPool({
-        connectionLimit: 100,
-        host: process.env.DB_HOSTNAME,
-        user: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_SCHEMA,
-      });
+// Create the connection pool. The pool-specific settings are the defaults
+const pool = mysql.createPool({
+  connectionLimit: 100,
+  host: process.env.DB_HOSTNAME,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_SCHEMA,
+  port: process.env.DB_PORT,
+  waitForConnections: true,
+  queueLimit: 0,
+});
 
-      return this.pool;
-    }
-
-    return this.pool;
-  }
-}
-
-const instance = new Connection();
-
-module.exports = instance;
+module.exports = pool;
